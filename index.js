@@ -3,7 +3,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const geoip = require('geoip-lite');
-const Visitor = require('./visitorModel'); // Import the Visitor model
+const Visitor = require('./model/visitorModel'); // Import the Visitor model
 
 const app = express();
 const port = 3000;
@@ -24,7 +24,7 @@ app.use(async (req, res, next) => {
 });
 
 // Use your router
-app.use('/app', require('./router'));
+app.use('/app', require('./router/router'));
 
 // Basic Express route
 app.get('/', (req, res) => {
