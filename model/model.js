@@ -1,12 +1,39 @@
 // model.js
 
 const mongoose = require('../db/db'); // Import the mongoose instance from db.js
-
 // Define a schema and model for testing the connection
-const TestSchema = new mongoose.Schema({
-    name: String,
+const Portfolios = new mongoose.Schema({
+    name: {
+        type:String,
+        required:true,
+    },
+    email:{
+        type:String,
+        required:true,
+        unique:true
+    },
+    mobileNumber:{
+        type:Number,
+        default:0
+    },
+   skills:{
+    type:Array
+   },
+   role:[
+    {
+    roleName:{type:String},
+    experience:{type:String},
+    description:{type:String},
+    company:{type:String}    
+    }
+   ],
+   education:{
+
+   }
+
+ 
 });
 
-const TestModel = mongoose.model('Test', TestSchema);
+const Portfolio = mongoose.model('Portfolios', Portfolios);
 
-module.exports = TestModel;
+module.exports = Portfolio;
